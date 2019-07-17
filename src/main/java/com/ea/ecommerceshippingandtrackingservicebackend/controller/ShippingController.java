@@ -15,7 +15,7 @@ public class ShippingController {
 
     @GetMapping("/{id}")
     public Shipping getShippingInformation(@PathVariable Long id){
-        System.out.println("ghgghgh");
+
         return shippingService.getShippingInformation(id);
     }
 
