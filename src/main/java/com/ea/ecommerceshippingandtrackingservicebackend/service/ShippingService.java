@@ -7,4 +7,5 @@ public interface ShippingService {
     Shipping getShippingInformation(Long id);
     Shipping startShipping(Shipping shipping, Tracking tracking);
     Shipping editShippingInformation(Shipping shipping);
+    Shipping getShippingInformationForOrder(Long id);
 }

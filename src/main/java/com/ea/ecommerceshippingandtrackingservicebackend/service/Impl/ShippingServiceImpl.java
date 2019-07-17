@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -18,7 +19,11 @@ public class ShippingServiceImpl implements ShippingService {
 
     @Override
     public Shipping getShippingInformation(Long id) {
-        return shippingRepository.getOne(id);
+        Optional<Shipping> shipping=shippingRepository.findById(id);
+        if(shipping.isPresent())
+            return shipping.get();
+
+        return new Shipping();
     }
 
     @Override
@@ -31,4 +36,10 @@ public class ShippingServiceImpl implements ShippingService {
     public Shipping editShippingInformation(Shipping shipping) {
         return shippingRepository.save(shipping);
     }
+
+    @Override
+    public Shipping getShippingInformationForOrder(Long id) {
+        return shippingRepository.findByOrderId(id);
+    }
+
 }

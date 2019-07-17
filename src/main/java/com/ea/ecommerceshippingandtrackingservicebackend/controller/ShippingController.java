@@ -15,6 +15,7 @@ public class ShippingController {
 
     @GetMapping("/{id}")
     public Shipping getShippingInformation(@PathVariable Long id){
+        System.out.println("ghgghgh");
         return shippingService.getShippingInformation(id);
     }
 
@@ -22,4 +23,9 @@ public class ShippingController {
     public Shipping createShipping(Shipping shipping, Tracking tracking){
         return shippingService.startShipping(shipping, tracking);
     }
+    @GetMapping("order/{id}")
+    public Shipping getShippingInformationForOrder(@PathVariable Long id){
+        return shippingService.getShippingInformationForOrder(id);
+    }
+
 }

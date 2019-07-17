@@ -3,6 +3,7 @@ package com.ea.ecommerceshippingandtrackingservicebackend.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 
@@ -20,5 +21,6 @@ public class Shipping {
 
     @Embedded
     private Tracking tracking;
+    @UniqueElements
     private Long orderId;
 }
